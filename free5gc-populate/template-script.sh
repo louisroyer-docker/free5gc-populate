@@ -27,7 +27,6 @@ for I_IMSI in ${IMSI}; do
 		IMSI_SUB="${IMSI_SUB}\n  ${I_IMSI}"
 	fi
 done
-echo $IMSI_SUB
 
 awk \
 	-v MONGO_HOST="${MONGO_HOST}" \
