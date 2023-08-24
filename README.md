@@ -58,7 +58,7 @@ services:
     container_name: mongodb-f5gc
     hostname: mongodb-f5gc
     restart: "always"
-    command: ["mongodb", "--port", "27017", "--bind_ip_all"]
+    command: ["mongod", "--port", "27017", "--bind_ip_all"]
     networks:
       db-net:
   free5gc-populate:

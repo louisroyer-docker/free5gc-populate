@@ -17,7 +17,9 @@ sqn: "%SQN"
 amf: "%AMF"
 
 # List all the slices
-slices: %SLICES
+slices:
+  %SLICES
 
 # All IMSI of UEs
-imsi: %IMSI
+imsi:
+  %IMSI
