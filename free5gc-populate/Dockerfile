@@ -10,7 +10,7 @@ ARG BUILD_DATE=""
 
 RUN apt-get update -q && DEBIAN_FRONTEND=non-interactive apt-get install -qy --no-install-recommends --no-install-suggests \
     free5gc-populate \
-    wait-for-it netcat-traditional \
+    wait-for-it \
     && apt-get upgrade -qy \
     && rm -rf /var/lib/apt/lists/*
 

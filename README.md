@@ -83,4 +83,5 @@ services:
       db-net:
 networks:
   db-net:
+    name: db-net
 ```
