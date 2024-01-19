@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# Copyright 2024 Louis Royer. All rights reserved.
+# Use of this source code is governed by a MIT-style license that can be
+# found in the LICENSE file.
+# SPDX-License-Identifier: MIT
+
 set -e
 if [ -z "$MONGO_HOST" ]; then
 	echo "Missing mandatory environment variable (MONGO_HOST)." > /dev/stderr
