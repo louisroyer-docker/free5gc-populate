@@ -19,15 +19,12 @@ RUN apt-get update -q && DEBIAN_FRONTEND=non-interactive apt-get install -qy --n
     && apt-get upgrade -qy \
     && rm -rf /var/lib/apt/lists/*
 
-COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
-
-COPY ./template-script.sh /usr/local/bin/template-script.sh
-ENV TEMPLATE_SCRIPT="template-script.sh"
-ENV TEMPLATE_SCRIPT_ARGS=""
-
-COPY ./template.yaml /etc/free5gc-populate/template.yaml
-ENV CONFIG_FILE="/etc/free5gc-populate/config.yaml"
-ENV CONFIG_TEMPLATE="/etc/free5gc-populate/template.yaml"
+COPY ./*.sh /usr/local/bin/
+COPY ./template.yaml /usr/local/share/free5gc-populate/
+ENV TEMPLATE_SCRIPT="template-script.sh" \
+    TEMPLATE_SCRIPT_ARGS="" \
+    CONFIG_FILE="/etc/free5gc-populate/config.yaml" \
+    CONFIG_TEMPLATE="/usr/local/share/free5gc-populate/template.yaml"
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["--help"]

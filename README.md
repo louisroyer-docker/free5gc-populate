@@ -18,7 +18,7 @@ environment:
   TEMPLATE_SCRIPT: "template-script.sh"
   TEMPLATE_SCRIPT_ARGS: ""
   CONFIG_FILE: "/etc/free5gc-populate/config.yaml"
-  CONFIG_TEMPLATE: "/etc/free5gc-populate/template.yaml"
+  CONFIG_TEMPLATE: "/usr/local/share/free5gc-populate/template.yaml"
 ```
 
 Environment variables for templating:
