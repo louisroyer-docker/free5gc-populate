@@ -62,7 +62,7 @@ services:
     networks:
       db-net:
   free5gc-populate:
-    image: louisroyer/free5gc-populate 
+    image: louisroyer/free5gc-populate
     container_name: free5gc-populate
     hostname: free5gc-populate
     restart: "no" # oneshot

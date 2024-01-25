@@ -5,6 +5,8 @@
 # SPDX-License-Identifier: MIT
 
 set -e
+mkdir -p "$(dirname "${CONFIG_FILE}")"
+
 if [ -z "$MONGO_HOST" ]; then
 	echo "Missing mandatory environment variable (MONGO_HOST)." > /dev/stderr
 	exit 1

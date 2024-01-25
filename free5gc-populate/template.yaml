@@ -8,7 +8,7 @@ mcc: "%MCC"
 # Mobile Network Code value of HPLMN (2 or 3 digits)
 mnc: "%MNC"
 # Permanent subscription key
-key: "%KEY" 
+key: "%KEY"
 # Operator code (OP or OPC) of the UE
 op: "%OP"
 # Sequence number
