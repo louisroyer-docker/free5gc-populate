@@ -1,0 +1,23 @@
+# Mongo Configuration
+mongo:
+  name: '%MONGO_NAME'
+  url: 'mongodb://%MONGO_HOST:%MONGO_PORT'
+
+# Mobile Country Code value of HPLMN
+mcc: "%MCC"
+# Mobile Network Code value of HPLMN (2 or 3 digits)
+mnc: "%MNC"
+# Permanent subscription key
+key: "%KEY"
+# Operator code (OP or OPC) of the UE
+op: "%OP"
+# Sequence number
+sqn: "%SQN"
+# Authentication Management Field
+amf: "%AMF"
+
+# List all the slices
+slices: %SLICES
+
+# All IMSI of UEs
+imsi: %IMSI

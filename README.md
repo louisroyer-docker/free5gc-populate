@@ -1,4 +1,19 @@
-# Free5GC-populate Docker Image
+# Free5GC-populate Docker Images
+## dev-free5gc-populate
+> [!IMPORTANT]
+> This image contains a version of free5gc-populate that is compatible with free5GC v4.0.0, and will eventually be removed once proporly packaged and integrated into `louisroyer/free5gc-populate` image.
+> Configuration is identical to `louisroyer/free5gc-populate` image, and described bellow.
+
+> [!WARNING]
+> **The following image is NOT an official build of free5GC-populate**, in the future it may include beta-functionalities.
+
+The image is available on DockerHub: [`louisroyer/dev-free5gc-populate`](https://hub.docker.com/r/louisroyer/dev-free5gc-populate)
+
+> [!NOTE]
+> Please note that even if this software is not yet properly packaged using `.deb`, the generated binary file `/usr/local/bin/free5gc-populate` is provided to you under Apache License.
+> A copy of the source code is available at in the repository [`louisroyer/free5gc-populate`](https://github.com/louisroyer/free5gc-populate) on the branch `f5gc4.0`.
+
+## free5gc-populate
 > [!WARNING]
 > **The following image is NOT an official build of free5GC-populate**, in the future it may include beta-functionalities.
 

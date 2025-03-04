@@ -1,9 +1,9 @@
-name: Docker Image CI - free5gc-populate
+name: Docker Image CI - free5gc-populate-dev
 
 on:
   push:
     paths:
-      - 'free5gc-populate/**'
+      - 'dev-free5gc-populate/**'
     branches: [ master ]
   workflow_dispatch:
   repository_dispatch:
@@ -26,7 +26,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_REPO }}
+            ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_REPO_DEV }}
           tags: |
             type=raw,enable=true,priority=100,prefix=bookworm-,suffix=-slim,value={{date 'YYYY-MM-DD'}}-{{sha}}
           flavor: |
@@ -49,7 +49,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: "{{defaultContext}}:free5gc-populate"
+          context: "{{defaultContext}}:dev-free5gc-populate"
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           build-args: BUILD_DATE=${{ steps.date.outputs.date }}
@@ -57,3 +57,4 @@ jobs:
           platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max
+

@@ -3,6 +3,12 @@
 # found in the LICENSE file.
 # SPDX-License-Identifier: MIT
 
+FROM golang:1.23 AS builder
+ARG COMMIT=b90ee760e481d61c825f0f49d5284590daf5b09f
+RUN : ${COMMIT:? Missing build-arg COMMIT.} &&  git -C /go/src clone --depth 1 --quiet -b f5gc4.0 https://github.com/louisroyer/free5gc-populate free5gc-populate
+WORKDIR /go/src/free5gc-populate
+RUN mkdir -p /go/bin && go build -o /go/bin/free5gc-populate main.go
+
 FROM louisroyer/base-irit:latest
 
 LABEL maintainer="Louis Royer <louis.royer@irit.fr>" \
@@ -14,11 +20,11 @@ LABEL maintainer="Louis Royer <louis.royer@irit.fr>" \
 ARG BUILD_DATE=""
 
 RUN apt-get update -q && DEBIAN_FRONTEND=non-interactive apt-get install -qy --no-install-recommends --no-install-suggests \
-    free5gc-populate \
     wait-for-it \
     && apt-get upgrade -qy \
     && rm -rf /var/lib/apt/lists/*
 
+COPY --from=builder /go/bin/free5gc-populate /usr/local/bin/free5gc-populate
 COPY ./*.sh /usr/local/bin/
 COPY ./template.yaml /usr/local/share/free5gc-populate/
 ENV TEMPLATE_SCRIPT="template-script.sh" \
