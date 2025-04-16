@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: MIT
 
 FROM golang:1.23 AS builder
-ARG COMMIT=b90ee760e481d61c825f0f49d5284590daf5b09f
+ARG COMMIT=0be67ef5d31c2cb175d21fbc215e34a51c0acbb1
 RUN : ${COMMIT:? Missing build-arg COMMIT.} &&  git -C /go/src clone --depth 1 --quiet -b f5gc4.0 https://github.com/louisroyer/free5gc-populate free5gc-populate
 WORKDIR /go/src/free5gc-populate
 RUN mkdir -p /go/bin && go build -o /go/bin/free5gc-populate main.go
